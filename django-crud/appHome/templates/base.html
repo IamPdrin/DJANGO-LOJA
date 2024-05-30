@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Django</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'fazerLogin' %}">
+                <img src="{% static 'django-logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <span class="titulo">Sistema Django</span>
+              </a>
+            </div>
+        </nav>
+    </header>
+    <hr>
+    
+    <main>
+        {%block conteudo %}
+        {% endblock %}
+    </main>
+</body>
+</html>

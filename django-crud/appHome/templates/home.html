@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block titulo %} HOME {% endblock %}
+
+{% block conteudo %}
+
+<div class="container w-50">
+    <div class="container">
+
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+
+    <div class="card">
+        <div class="card-body">
+                <h1> Produtos
+                    <a href="{% url 'add_Produto' %}" class="btn btn-success">Adicionar</a>
+                </h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr>
+                            <th scope="row">{{ produto.id }}</th>
+                            <td>{{produto.nome}}</td>
+                            <td>{{produto.foto}}</td>
+                            <td>{{produto.preco}}</td>
+                            <td>{{produto.quantidade}}</td>
+                            <td>
+                                <a href="{% url 'editar_Produto' produto.id %}" class="btn btn-warning">editar</a>
+                                <a href="{% url 'excluir_Produto' produto.id %}" class="btn btn-danger">excluir</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="text-center">
+        <a href="{% url 'vendas' %}" class="btn btn-success">Página de Vendas</a>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Editar Produto {% endblock %}
+
+{% block conteudo %}
+
+<div class="container w-50">
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form }}
+
+        <hr>
+
+        <input type="submit" value="Atualizar" class="btn btn-success">
+
+
+    </form>
+</div>
+
+{% endblock %}
